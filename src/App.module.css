@@ -1,0 +1,40 @@
+.App {
+    text-align: center;
+}
+
+.App_header {
+    background-color: #282c34;
+    min-height: 100vh;
+    min-width: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.sqrt {
+    background-image: url("https://cdn.pixabay.com/photo/2015/01/31/05/05/background-618226_1280.png");
+    border-image-width: auto;
+    padding: 100px;
+    border-radius: 35px;
+}
+
+.header {
+    margin: 20px;
+
+}
+
+.body {
+    text-align: center;
+}
+.infoBoard{
+    text-align: center;
+
+}
+.input{
+    border-radius: 25px;
+    border: red;
+    text-align: center;
+}
