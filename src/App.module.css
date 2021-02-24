@@ -37,4 +37,7 @@
     border-radius: 25px;
     border: red;
     text-align: center;
+    width:250px;
+    min-height:50px;
+    font-size: 25px;
 }

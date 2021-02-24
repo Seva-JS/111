@@ -25,7 +25,7 @@ export default class App extends React.Component {
             fetch(url, {
                 origin: 'cors'
             }).then(resp => resp.json()).then(data => this.setState({
-                data: {data},
+                data:data,
                 load: true,
 
             }))
@@ -39,13 +39,24 @@ export default class App extends React.Component {
     addWeatherToPage = () => {
 
         if (this.state.load === true) {
-            let city = this.state.data.data.name
-            let temp = this.KtoC(this.state.data.data.main.temp);
+            debugger
+            let city = this.state.data.name
+            let temp = this.KtoC(this.state.data.main.temp);
+            let minTemp = this.KtoC(this.state.data.main.temp_min);
+            let maxTemp = this.KtoC(this.state.data.main.temp_max);
+            let pressure = this.pressureCout(this.state.data.main.pressure)
 
             return (
                 <div>
                     <div> City: {city}</div>
-                    <div> Temperature: {temp}°</div>
+                    <div> Temperature:
+                        <ul>
+                            <li>Now: {temp}°</li>
+                            <li>Min: {minTemp}°</li>
+                            <li>Max: {maxTemp}°</li>
+                        </ul>
+                        <div>Pressure: {pressure} mm Hg</div>
+                    </div>
 
 
                 </div>
@@ -54,6 +65,9 @@ export default class App extends React.Component {
 
         }
 
+    }
+    pressureCout = (P) => {
+        return Math.floor(P / 1.3333)
     }
 
     KtoC = (K) => {
