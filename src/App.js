@@ -17,9 +17,11 @@ export default class App extends React.Component {
 
 
     request = () => {
+        try{
 
         let inputVal = document.getElementById("myInput").value;
-        if (inputVal != "") {
+        let cutVal=inputVal.trim();
+        if (cutVal !== "") {
             const api = 'd989440c836fbb9bdc5d22f6d5e7683f';
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${api}`
             fetch(url, {
@@ -32,6 +34,12 @@ export default class App extends React.Component {
         } else {
             alert('Введите город !')
         }
+    }
+    catch(e){
+        alert(e); 
+        
+
+    }
 
 
     }
