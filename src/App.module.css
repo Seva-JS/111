@@ -40,4 +40,14 @@
     width:250px;
     min-height:50px;
     font-size: 25px;
+    outline: none;
+}
+.stBlock{
+    text-align: center;
+    border-style: solid;
+    border-radius: 15px;
+    margin-bottom: 15px;
+
+
+
 }
