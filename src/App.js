@@ -8,38 +8,40 @@ export default class App extends React.Component {
     this.state = {
       data: {},
       load: false,
-      inputValue: " ",
+      inputValue: "",
     };
   }
 
   request = (e) => {
     if (e.key === "Enter") {
       try {
-        let inputVal = this.state.inputValue;
-        let cutVal = inputVal.trim();
-        if (cutVal !== "") {
-          const api = "16231cb764f891b525cd2b445ebfb729";
-          const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${api}`;
-          fetch(url, {
-            origin: "cors",
-          })
-            .then((resp) => resp.json())
-            .then((data) =>
-              this.setState({
-                data: data,
-                load: true,
-                inputVal: "",
-              })
-            );
-        } else {
-          alert("Enter your town!");
-        }
+        this.rec();
       } catch (error) {
         alert(error);
       }
     }
   };
-
+  rec = () => {
+    let inputVal = this.state.inputValue;
+    let cutVal = inputVal.trim();
+    if (cutVal !== "") {
+      const api = "16231cb764f891b525cd2b445ebfb729";
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${cutVal}&appid=${api}`;
+      fetch(url, {
+        origin: "cors",
+      })
+        .then((resp) => resp.json())
+        .then((data) =>
+          this.setState({
+            data: data,
+            load: true,
+            inputVal: " ",
+          })
+        );
+    } else {
+      alert("Enter your town!");
+    }
+  }
   addWeatherToPage = () => {
     if (this.state.load === true) {
       let city = this.state.data.name;
@@ -83,8 +85,9 @@ export default class App extends React.Component {
     return Math.floor(K - 273.15);
   };
   inputValue = (e) => {
+    let regexp = e.currentTarget.value.replace(/\d/g, "");
     this.setState({
-      inputValue: e.currentTarget.value,
+      inputValue: regexp,
     });
   };
 
@@ -94,6 +97,7 @@ export default class App extends React.Component {
         <Serch
           addWeatherToPage={this.addWeatherToPage}
           request={this.request}
+          state={this.state}
           inputValue={this.inputValue}
         />
       </div>
