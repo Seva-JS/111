@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    display: flex;
 }
 
 .App_header {
@@ -17,7 +18,7 @@
 .sqrt {
     background-image: url("https://cdn.pixabay.com/photo/2015/01/31/05/05/background-618226_1280.png");
     border-image-width: auto;
-    padding: 100px;
+    padding: 30px;
     border-radius: 35px;
 }
 
@@ -43,11 +44,19 @@
     outline: none;
 }
 .stBlock{
+    height: 200px;
+    width: 250px;
     text-align: center;
     border-style: solid;
     border-radius: 15px;
     margin-bottom: 15px;
 
-
-
+}
+.img {
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    margin: 25px;
+    border-radius: 25px;
+    border-style: solid;
 }

@@ -9,6 +9,7 @@ export default class App extends React.Component {
       data: {},
       load: false,
       inputValue: "",
+      satusCod:''
     };
   }
 
@@ -36,6 +37,8 @@ export default class App extends React.Component {
             data: data,
             load: true,
             inputVal: " ",
+            satusCod:data.cod
+
           })
         );
     } else {
@@ -44,6 +47,7 @@ export default class App extends React.Component {
   }
   addWeatherToPage = () => {
     if (this.state.load === true) {
+      if(this.state.satusCod !=='404'){
       let city = this.state.data.name;
       let region = this.state.data.sys.country;
       let temp = this.KtoC(this.state.data.main.temp);
@@ -53,6 +57,7 @@ export default class App extends React.Component {
       let icone = this.state.data.weather[0].icon;
       let url = `http://openweathermap.org/img/wn/${icone}@2x.png`;
       let weatherStatus = this.state.data.weather[0].main;
+      
 
       return (
         <div>
@@ -75,7 +80,16 @@ export default class App extends React.Component {
           </div>
         </div>
       );
-    }
+      
+    }else{
+      alert('Wrong town!')
+      this.setState({
+        data: '',
+            load: false,
+            inputVal: " ",
+            satusCod:''
+      });
+    }}
   };
   pressureCout = (P) => {
     return Math.floor(P / 1.3333);
