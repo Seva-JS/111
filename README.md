@@ -1,2 +1,2 @@
 
-DEMO VERSION :https://604bb60690b40e07ffd87dd6--naughty-mclean-3e5e29.netlify.app/
+DEMO VERSION :https://60523c6b909c01223366e96f--amazing-keller-fe8b99.netlify.app/
