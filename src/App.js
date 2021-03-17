@@ -107,13 +107,16 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+
+      <div >
+      <body className={s.App}>
         <Serch
           addWeatherToPage={this.addWeatherToPage}
           request={this.request}
           state={this.state}
           inputValue={this.inputValue}
         />
+        </body>
       </div>
     );
   }
