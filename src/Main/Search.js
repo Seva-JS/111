@@ -4,8 +4,8 @@ import s from "../App.module.css";
 export default class Serch extends React.Component {
   render() {
     return (
-      <div className={s.App_header}>
-        <body>
+      <div>
+        
           <div className={s.sqrt}>
             <div>
               <input
@@ -22,7 +22,7 @@ export default class Serch extends React.Component {
             <div className={s.body}></div>
             <div>{this.props.addWeatherToPage()}</div>
           </div>
-        </body>
+        
       </div>
     );
   }
